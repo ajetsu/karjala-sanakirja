@@ -1,0 +1,373 @@
+:root {
+  --bg: #faf7f2;
+  --ink: #2b2622;
+  --muted: #7a7268;
+  --accent: #7a3b2e;
+  --accent-soft: #efe1d8;
+  --border: #e4dbcf;
+  --card: #ffffff;
+  --warn: #b5541f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.app {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: 'Georgia', 'Iowan Old Style', serif;
+  background: var(--bg);
+}
+
+.header h1 {
+  font-size: 1.7rem;
+  margin: 0 0 4px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  margin: 0 0 24px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-family: system-ui, sans-serif;
+}
+
+.controls {
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  padding: 8px 0 16px;
+  z-index: 5;
+}
+
+.toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.toggle button {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--muted);
+  font-family: system-ui, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.toggle button.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  color: var(--ink);
+  font-family: 'Georgia', serif;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: var(--accent);
+}
+
+.empty-state {
+  color: var(--muted);
+  font-family: system-ui, sans-serif;
+  padding: 40px 4px;
+  font-size: 0.95rem;
+}
+
+.result-count {
+  color: var(--muted);
+  font-family: system-ui, sans-serif;
+  font-size: 0.82rem;
+  margin: 4px 2px 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.entry-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.entry {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.entry-head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.headword {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.roman {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.infl {
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.entry-gloss {
+  margin-top: 4px;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+.entry-page {
+  margin-top: 6px;
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-family: system-ui, sans-serif;
+}
+
+.sense-list {
+  margin: 6px 0 0;
+  padding-left: 1.3em;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sense-list li.sense {
+  line-height: 1.45;
+}
+
+/* Hide the ordinal when there is only a single sense */
+.sense-list li.sense:only-child {
+  list-style: none;
+  margin-left: -1.3em;
+}
+
+.sense-gloss {
+  font-size: 1rem;
+}
+
+.example-list {
+  list-style: none;
+  margin: 5px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.example {
+  display: flex;
+  flex-direction: column;
+  border-left: 2px solid var(--accent-soft);
+  padding-left: 10px;
+}
+
+.example-kar {
+  font-style: italic;
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
+.example-fin {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.load-more {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--accent);
+  font-family: system-ui, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.load-more:hover {
+  background: var(--accent-soft);
+}
+
+.footer {
+  margin-top: 48px;
+  text-align: center;
+  color: var(--muted);
+  font-family: system-ui, sans-serif;
+  font-size: 0.78rem;
+}
+
+.mode-tabs {
+  margin: 0 0 20px;
+}
+
+.translate-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.translate-pane-label {
+  flex: 1;
+  color: var(--muted);
+  font-family: system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.translate-pane-label:last-child {
+  text-align: right;
+}
+
+.translate-swap {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--accent);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.translate-swap:hover {
+  background: var(--accent-soft);
+}
+
+.translate-panes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+@media (max-width: 560px) {
+  .translate-panes {
+    grid-template-columns: 1fr;
+  }
+}
+
+.translate-pane {
+  display: flex;
+}
+
+.translate-textarea,
+.translate-output {
+  width: 100%;
+  min-height: 160px;
+  padding: 14px 16px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  border-radius: 12px;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  color: var(--ink);
+  font-family: 'Georgia', serif;
+}
+
+.translate-textarea {
+  resize: vertical;
+  outline: none;
+}
+
+.translate-textarea:focus {
+  border-color: var(--accent);
+}
+
+.translate-output {
+  white-space: pre-wrap;
+}
+
+.fuzzy-token {
+  text-decoration: underline dotted var(--muted);
+  text-underline-offset: 3px;
+}
+
+.untranslated-token {
+  text-decoration: underline dashed var(--warn);
+  text-underline-offset: 3px;
+}
+
+.tm-match {
+  margin-top: 20px;
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+
+.tm-match-title {
+  color: var(--accent);
+  font-family: system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tm-match-kar {
+  font-style: italic;
+  font-size: 1rem;
+}
+
+.tm-match-fin {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-top: 2px;
+}
+
+.word-breakdown {
+  margin-top: 28px;
+}
+
+.word-breakdown-title {
+  color: var(--muted);
+  font-family: system-ui, sans-serif;
+  font-size: 0.82rem;
+  margin: 4px 2px 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
